@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://errorcode.help/sitemap.xml

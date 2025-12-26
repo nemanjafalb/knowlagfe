@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://errorcode.help/sitemap-core.xml</loc>
+    <lastmod>2025-12-26T18:42:23+01:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://errorcode.help/sitemap-categories.xml</loc>
+    <lastmod>2025-12-26T18:42:23+01:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://errorcode.help/sitemap-platforms.xml</loc>
+    <lastmod>2025-12-26T18:42:23+01:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://errorcode.help/sitemap-errors-1.xml</loc>
+    <lastmod>2025-12-26T18:42:23+01:00</lastmod>
+  </sitemap>
+</sitemapindex>

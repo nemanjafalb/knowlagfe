@@ -1,0 +1,68 @@
+[
+    {
+        "id": "apache",
+        "slug": "apache",
+        "name": "Apache HTTP Server",
+        "description": "The world's most used web server software."
+    },
+    {
+        "id": "nginx",
+        "slug": "nginx",
+        "name": "Nginx",
+        "description": "A web server that can also be used as a reverse proxy, load balancer, and HTTP cache."
+    },
+    {
+        "id": "cloudflare",
+        "slug": "cloudflare",
+        "name": "Cloudflare",
+        "description": "A global content delivery network and security company."
+    },
+    {
+        "id": "aws",
+        "slug": "aws",
+        "name": "Amazon Web Services",
+        "description": "Comprehensive, evolving cloud computing platform provided by Amazon."
+    },
+    {
+        "id": "wordpress",
+        "slug": "wordpress",
+        "name": "WordPress",
+        "description": "The world's most popular content management system."
+    },
+    {
+        "id": "php",
+        "slug": "php",
+        "name": "PHP",
+        "description": "A popular general-purpose scripting language that is especially widely used for web development."
+    },
+    {
+        "id": "windows",
+        "slug": "windows",
+        "name": "Windows",
+        "description": "Microsoft's operating system."
+    },
+    {
+        "id": "macos",
+        "slug": "macos",
+        "name": "macOS",
+        "description": "Apple's operating system for Mac computers."
+    },
+    {
+        "id": "android",
+        "slug": "android",
+        "name": "Android",
+        "description": "Mobile operating system based on a modified version of the Linux kernel."
+    },
+    {
+        "id": "ios",
+        "slug": "ios",
+        "name": "iOS",
+        "description": "Mobile operating system created and developed by Apple Inc. exclusively for its hardware."
+    },
+    {
+        "id": "chrome",
+        "slug": "chrome",
+        "name": "Google Chrome",
+        "description": "Cross-platform web browser developed by Google."
+    }
+]
