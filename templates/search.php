@@ -32,4 +32,69 @@
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
+
+    <!-- Client-side Search for Static Deployment -->
+    <div id="static-search-results" class="grid category-grid" style="display:none;"></div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('q');
+        
+        // Only run if we have a query and no server-side results (or we are in static mode)
+        // In static build, $results is empty, so the PHP block above renders nothing or "No results" if we forced a query.
+        // But in build_static.php we pass query='', so it renders the empty state.
+        
+        if (query) {
+            // Update input value
+            document.querySelector('input[name="q"]').value = query;
+            
+            fetch('<?php echo $root; ?>/search_index.json')
+                .then(response => {
+                    if (!response.ok) throw new Error("No search index");
+                    return response.json();
+                })
+                .then(data => {
+                    const results = data.filter(item => {
+                        const q = query.toLowerCase();
+                        return item.title.toLowerCase().includes(q) || 
+                               item.code.toLowerCase().includes(q) || 
+                               item.desc.toLowerCase().includes(q);
+                    });
+                    
+                    const container = document.getElementById('static-search-results');
+                    container.style.display = 'grid';
+                    container.innerHTML = '';
+                    
+                    if (results.length > 0) {
+                        const countP = document.createElement('p');
+                        countP.className = 'mb-4 search-results-count';
+                        countP.textContent = `Found ${results.length} results for "${query}"`;
+                        container.parentNode.insertBefore(countP, container);
+
+                        results.forEach(error => {
+                            const card = document.createElement('a');
+                            card.href = `<?php echo $root; ?>/errors/${error.slug}`;
+                            card.className = 'article-card-pro';
+                            
+                            let html = '';
+                            if (error.code !== error.title) {
+                                html += `<span class="code">${error.code}</span>`;
+                            }
+                            html += `<h3>${error.title}</h3>`;
+                            html += `<p>${error.desc}...</p>`;
+                            html += `<div class="article-meta"><span>Read more &rarr;</span></div>`;
+                            
+                            card.innerHTML = html;
+                            container.appendChild(card);
+                        });
+                    } else {
+                        const p = document.createElement('p');
+                        p.textContent = 'No results found.';
+                        container.parentNode.insertBefore(p, container);
+                    }
+                })
+                .catch(e => console.log('Static search not available or failed', e));
+        }
+    });
+    </script>
 </div>

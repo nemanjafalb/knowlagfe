@@ -1,0 +1,39 @@
+name: Daily Content Generation
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight UTC
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  generate-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: curl, mbstring, json
+
+    - name: Create .env file
+      run: |
+        echo "GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}" >> .env
+        echo "APP_URL=https://errorcode.help" >> .env
+        echo "DAILY_LIMIT=5" >> .env
+        echo "RELATED_SITE_URL=https://isyourwebsitedownrightnow.com/" >> .env
+
+    - name: Generate Content
+      run: php scripts/generate_content.php
+
+    - name: Commit and Push changes
+      run: |
+        git config --global user.name 'GitHub Action'
+        git config --global user.email 'action@github.com'
+        git add data/*.json sitemap.xml
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-generated content [skip ci]" && git push)

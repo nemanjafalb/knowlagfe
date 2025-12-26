@@ -21,7 +21,39 @@ A high-performance, automated Knowledge Base for error codes, built with PHP and
 - **Write Permissions** for the `data/` folder
 - **Google Gemini API Key**
 
-## 🛠️ Production Setup (errorcode.help)
+## ☁️ Cloudflare Pages Deployment (Serverless / Static)
+
+Since Cloudflare Pages is a static hosting platform, you cannot run PHP dynamically. Instead, we use a **Build Step** to convert the PHP site into static HTML, and **GitHub Actions** to automate content generation.
+
+### 1. Setup Cloudflare Pages
+1.  Push this repository to GitHub.
+2.  Log in to Cloudflare Dashboard > **Pages**.
+3.  **Create a project** > Connect to Git > Select your repository.
+4.  **Build Settings**:
+    *   **Framework Preset**: `None`
+    *   **Build Command**: `php scripts/build_static.php`
+    *   **Build Output Directory**: `dist`
+5.  **Environment Variables** (in Cloudflare):
+    *   `PHP_VERSION`: `8.1` (Optional, usually default)
+
+### 2. Automate Content Generation (GitHub Actions)
+We have included a workflow file in `.github/workflows/daily_content.yml` that runs daily to generate new content and commit it back to the repo. This triggers a new Cloudflare build automatically.
+
+1.  Go to your GitHub Repository > **Settings** > **Secrets and variables** > **Actions**.
+2.  Click **New repository secret**.
+3.  Name: `GEMINI_API_KEY`
+4.  Value: Your actual Google Gemini API Key.
+5.  (Optional) You can also add `APP_URL` if you want to override the default.
+
+**How it works:**
+1.  Every day at midnight, GitHub Actions spins up.
+2.  It runs `scripts/generate_content.php`.
+3.  It commits the new data (`data/errors.json`, etc.) to the repo.
+4.  Cloudflare Pages detects the commit, runs `scripts/build_static.php`, and deploys the new static site.
+
+## 🛠️ Traditional Hosting Setup (cPanel/VPS)
+
+If you prefer standard hosting (GoDaddy, Namecheap, DigitalOcean):
 
 1.  **Upload Files**:
     Upload the entire project folder to your web server (e.g., `public_html`).
