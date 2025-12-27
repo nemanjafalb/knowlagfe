@@ -241,4 +241,10 @@ render_static('search.php', [
 // 9. Legal Page
 render_static('legal.php', [], DIST_DIR . '/legal/index.html');
 
+// 10. Cloudflare Headers (Optional but good for SEO)
+$headers = "/sitemap.xml\n  Content-Type: application/xml\n";
+$headers .= "/sitemap-*.xml\n  Content-Type: application/xml\n";
+$headers .= "/robots.txt\n  Content-Type: text/plain\n";
+file_put_contents(DIST_DIR . '/_headers', $headers);
+
 echo "Build Complete! Output in /dist\n";
