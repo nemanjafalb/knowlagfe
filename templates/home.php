@@ -3,7 +3,7 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "ErrorBase",
+  "name": "ErrorCode",
   "url": "<?php echo $root; ?>/",
   "potentialAction": {
     "@type": "SearchAction",
@@ -33,9 +33,9 @@
 <section class="authority-section">
     <div class="kb-container">
         <div class="authority-container">
-            <h2 class="authority-title">Why ErrorBase Exists</h2>
+            <h2 class="authority-title">Why ErrorCode Exists</h2>
             <p class="authority-text">
-                ErrorBase is built as a technical reference for developers and site owners who need accurate, structured explanations of internet errors. Every page is organized by root cause, not guesses, and follows a consistent troubleshooting framework used in real-world production environments.
+                ErrorCode is built as a technical reference for developers and site owners who need accurate, structured explanations of internet errors. Every page is organized by root cause, not guesses, and follows a consistent troubleshooting framework used in real-world production environments.
             </p>
             
             <div class="authority-features">

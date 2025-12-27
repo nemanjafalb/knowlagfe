@@ -75,6 +75,8 @@ function render_static($template, $data, $outputPath) {
         $seoType = 'list_categories';
     } elseif (strpos($template, 'list_platforms.php') !== false) {
         $seoType = 'list_platforms';
+    } elseif (strpos($template, 'legal.php') !== false) {
+        $seoType = 'legal';
     }
 
     $seo = $seoGen->generate($seoData, $seoType);
@@ -235,5 +237,8 @@ render_static('search.php', [
     'query' => '',
     'results' => []
 ], DIST_DIR . '/search/index.html');
+
+// 9. Legal Page
+render_static('legal.php', [], DIST_DIR . '/legal/index.html');
 
 echo "Build Complete! Output in /dist\n";

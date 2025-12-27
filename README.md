@@ -1,4 +1,4 @@
-# ErrorBase - Programmatic SEO Knowledge Base
+# ErrorCode - Programmatic SEO Knowledge Base
 
 A high-performance, automated Knowledge Base for error codes, built with PHP and powered by Google Gemini AI.
 
@@ -149,4 +149,4 @@ Command:
 - [ ] "Is Your Website Down" tool is visible on error pages.
 
 ---
-*Generated for ErrorBase Production Deployment*
+*Generated for ErrorCode Production Deployment*

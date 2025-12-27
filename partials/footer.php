@@ -3,7 +3,7 @@
         <div class="kb-container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h3 class="footer-title">About ErrorBase</h3>
+                    <h3 class="footer-title">About ErrorCode</h3>
                     <p class="footer-text">
                         Built for developers and sysadmins. We provide accurate, technical explanations for internet error codes, focusing on root cause analysis and platform-specific solutions.
                     </p>
@@ -26,8 +26,9 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="footer-copyright">&copy; <?php echo date('Y'); ?> ErrorBase. Built for developers.</p>
+                <p class="footer-copyright">&copy; <?php echo date('Y'); ?> ErrorCode. Built for developers.</p>
                 <p class="footer-copyright">Last updated: <?php echo date('F Y'); ?></p>
+                <p class="footer-copyright"><a href="<?php echo $root; ?>/legal" style="color: #718096; text-decoration: none;">Legal & Contact</a></p>
             </div>
         </div>
     </footer>

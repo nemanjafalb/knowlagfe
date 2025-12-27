@@ -55,14 +55,19 @@ class SEO {
                 $seo['canonical'] = $this->baseUrl . '/platforms/' . $data['slug'];
                 break;
             case 'list_categories':
-                $seo['title'] = "All Error Categories – ErrorBase";
+                $seo['title'] = "All Error Categories – ErrorCode";
                 $seo['description'] = "Browse all error code categories to find the solution to your problem.";
                 $seo['canonical'] = $this->baseUrl . '/categories';
                 break;
             case 'list_platforms':
-                $seo['title'] = "Supported Platforms – ErrorBase";
-                $seo['description'] = "List of all platforms and technologies covered by ErrorBase.";
+                $seo['title'] = "Supported Platforms – ErrorCode";
+                $seo['description'] = "List of all platforms and technologies covered by ErrorCode.";
                 $seo['canonical'] = $this->baseUrl . '/platforms';
+                break;
+            case 'legal':
+                $seo['title'] = "Legal Information – Privacy Policy & Terms – ErrorCode";
+                $seo['description'] = "Legal information for ErrorCode, including Privacy Policy, Terms of Service, and Contact details.";
+                $seo['canonical'] = $this->baseUrl . '/legal';
                 break;
         }
 

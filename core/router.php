@@ -35,6 +35,12 @@ class Router {
             return;
         }
 
+        // Handle Legal Page
+        if ($uriPath === 'legal') {
+            $this->render('legal.php', [], 'legal');
+            return;
+        }
+
         foreach ($this->routes as $pattern => $callback) {
             if (preg_match("#^$pattern$#", $uriPath, $matches)) {
                 array_shift($matches); // Remove full match
