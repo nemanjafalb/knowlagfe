@@ -59,6 +59,11 @@ class SitemapGenerator {
             'priority' => '1.0',
             'changefreq' => 'daily'
         ];
+        $coreUrls[] = [
+            'loc' => $this->baseUrl . '/legal',
+            'priority' => '0.3',
+            'changefreq' => 'monthly'
+        ];
         $this->writeSitemapFile('sitemap-core.xml', $coreUrls);
         array_unshift($sitemapFiles, 'sitemap-core.xml');
 
