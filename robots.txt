@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
 Sitemap: https://errorcode.help/sitemap.xml
+Sitemap: https://errorcode.help/sitemap-core.xml
+Sitemap: https://errorcode.help/sitemap-categories.xml
+Sitemap: https://errorcode.help/sitemap-platforms.xml
+Sitemap: https://errorcode.help/sitemap-errors-1.xml
